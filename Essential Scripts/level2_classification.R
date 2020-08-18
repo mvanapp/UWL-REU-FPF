@@ -27,7 +27,7 @@ sort(df$TR_DIA, decreasing = TRUE)
 #TPA = 1 / (pi * (DBH*2.75)^2) / 43560)
 #BA = 0.25*pi*(DBH^2)
 TPA_bins = 1 / (pi * (seq(1:106)*2.75)^2) / 43560
-BA_bins = 0.25*pi*(seq(1:106)^2)
+BA_bins = 0.25*pi*(seq(1:106)^2)  #Note: units here are sq inches - BA is almost always expressed as sq ft
 
 
 #confirm TPA length

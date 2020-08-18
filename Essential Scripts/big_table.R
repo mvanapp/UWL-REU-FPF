@@ -19,7 +19,7 @@ data <- read_csv("clean_data/UMRS_FPF_clean.csv")
 plots <- data %>% group_by(PID) %>% 
   summarize(Samples = n(),
             TPA = sum(TreesPerAcre),
-            BA = sum(BasalArea),
+            BA = sum(BasalArea),  #Note that when calculating a plot-level measure of total BA in trees per acre, the prism sampling method confounds just summing across all individual BAs. Instead, plot BA is the count of individual stems * BAF, which in our case is 10. So if there are 9 stems sampled, we have a total plot BA of 9*10=90. See pg 14-15 (explanation 3) of the BasalAreaAndPointSampling doc
             Unique_Species = n_distinct(TR_SP),
             rel_SNAG_TPA = sum(TreesPerAcre[TR_SP == "SNAG"]) / TPA,
             rel_SNAG_BA = sum(TreesPerAcre[TR_SP == "SNAG"]) / BA,
