@@ -317,8 +317,8 @@ nrow(clean[clean$TR_SP %in% c("SNAG"),])
 #I am not sure if the formula is correct...
 clean_TPA <- clean %>%
   mutate(TR_DIA = as.numeric(TR_DIA)) %>%
-  mutate(TreesPerAcre = 1 / ((pi*(TR_DIA*2.75)^2) / 43560),
-         BasalArea = 0.25*pi*(TR_DIA^2))
+  mutate(TreesPerAcre = 1 / ((pi*(TR_DIA*2.75)^2) / 43560),   #this is correct
+         BasalArea = 0.25*pi*(TR_DIA^2))  #note: the units of this calculation are in inches2; prefer to express BA in ft2 (BA_ft2 = 0.005454*DBH^2)
 
 #number of NA TR_DIA
 clean_TPA[is.na(clean_TPA$TR_DIA),]
